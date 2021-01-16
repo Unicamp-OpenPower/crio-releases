@@ -1,0 +1,22 @@
+os: linux
+dist: bionic
+arch: ppc64le
+sudo: required
+language: go
+
+go: "1.15.x"
+
+install:
+  - sudo printf "deb https://oplab9.parqtec.unicamp.br/pub/repository/debian/ ./" >> /etc/apt/sources.list
+  - wget https://oplab9.parqtec.unicamp.br/pub/key/openpower-gpgkey-public.asc
+  - sudo apt-key add openpower-gpgkey-public.asc
+  - sudo apt update
+  - sudo apt install -y golang-go libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc conmon crun
+  - sudo apt install -y python3 rpm lftp
+  - printf "set ssl:verify-certificate false" >> ~/.lftprc
+
+script:
+  - python3 ftp_version.py
+  - python3 validation.py
+  - bash build.sh
+  - bash release.sh
