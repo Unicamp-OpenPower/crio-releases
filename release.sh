@@ -3,7 +3,8 @@ github_version=$(cat github_version.txt)
 ftp_version=$(cat ftp_version.txt)
 LOCALPATH=/bazel/output
 
-if [ $github_version != $ftp_version ]
+#ALTERAR == POR !=
+if [ $github_version == $ftp_version ]
 then
   git clone https://$USERNAME:$TOKEN@github.com/Unicamp-OpenPower/repository-scrips.git
   cd repository-scrips/
@@ -14,6 +15,8 @@ then
   cd ..
   sudo ./empacotar-crio-deb.sh crio-$github_version.linux-ppc64le.tar.gz $github_version
   sudo ./empacotar-crio-rpm.sh crio-$github_version.linux-ppc64le.tar.gz $github_version
+  ls
+  cd ~/rpmbuild/RPMS/ppc64le/
   ls
 
   #lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /repository/debian/ppc64el/crio/ $LOCALPATH/crio-$github_version-ppc64le.deb"
