@@ -14,7 +14,7 @@ then
   git checkout v0.8.7
   ./build_linux.sh
   cd ..
-  ./create-tar-gz.sh
+  sudo ./create-tar-gz.sh
   ls
 
   #lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; rm /ppc64el/crio/latest/crio-$ftp_version.linux-ppc64le.tar.gz"
