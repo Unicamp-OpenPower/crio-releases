@@ -15,10 +15,7 @@ then
   cd ..
   sudo ./empacotar-crio-deb.sh crio-$github_version.linux-ppc64le.tar.gz $github_version
   sudo ./empacotar-crio-rpm.sh crio-$github_version.linux-ppc64le.tar.gz $github_version
-  ls
-  cd ~/rpmbuild/RPMS/ppc64le/
-  ls
 
-  lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /repository/debian/ppc64el/crio/ $LOCALPATH/crio-$github_version-ppc64le.deb"
+  lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /repository/debian/ppc64el/crio/ crio-$github_version-ppc64le.deb"
   sudo lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O /repository/rpm/ppc64le/crio/ ~/rpmbuild/RPMS/ppc64le/crio-$github_version-1.ppc64le.rpm"
 fi
