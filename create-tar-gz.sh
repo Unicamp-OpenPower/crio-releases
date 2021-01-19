@@ -1,5 +1,5 @@
 #github_version=$(cat github_version.txt)
-github_version=1.19.0
+github_version=1.19.1
 
 mkdir -p usr/local/bin \
 usr/local/share/man5 \
