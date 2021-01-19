@@ -6,6 +6,7 @@ if [ $github_version != $ftp_version ]
 then
   git clone https://github.com/cri-o/cri-o.git
   cd cri-o/
+  git checkout v$github_version
   make
   cd ..
   git clone https://github.com/containernetworking/plugins
