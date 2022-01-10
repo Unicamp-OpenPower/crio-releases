@@ -7,11 +7,15 @@ language: go
 go: "1.17.x"
 
 install:
-  - sudo printf "deb https://oplab9.parqtec.unicamp.br/pub/repository/debian/ ./" >> /etc/apt/sources.list
-  - wget https://oplab9.parqtec.unicamp.br/pub/key/openpower-gpgkey-public.asc
-  - sudo apt-key add openpower-gpgkey-public.asc
+  #- sudo printf "deb https://oplab9.parqtec.unicamp.br/pub/repository/debian/ ./" >> /etc/apt/sources.list
+  #- wget https://oplab9.parqtec.unicamp.br/pub/key/openpower-gpgkey-public.asc
+  #- sudo apt-key add openpower-gpgkey-public.asc
   - sudo apt update
-  - sudo apt install -y golang-go libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc conmon crun
+  #- sudo apt install -y libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc conmon crun
+  - sudo apt install -y libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc
+  - wget https://oplab9.parqtec.unicamp.br/pub/repository/debian/ppc64el/containers/conmon-2.0.30-ppc64le.deb
+  - wget https://oplab9.parqtec.unicamp.br/pub/repository/debian/ppc64el/containers/crun-0.20-ppc64le.deb
+  - sudo dpkg -i conmon-2.0.30-ppc64le.deb crun-0.20-ppc64le.deb
   - sudo apt install -y python3 rpm lftp
   - printf "set ssl:verify-certificate false" >> ~/.lftprc
 
