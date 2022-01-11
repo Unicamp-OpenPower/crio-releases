@@ -14,9 +14,9 @@ install:
   #- sudo apt install -y libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc conmon crun
   - sudo apt install -y libassuan-dev libdevmapper-dev libglib2.0-dev libc6-dev libgpgme11-dev libgpg-error-dev libseccomp-dev libsystemd-dev libselinux1-dev pkg-config go-md2man libudev-dev software-properties-common gcc btrfs-progs runc
   # dependeces crun
-  - sudo apt install -y libtool, libsystemd-dev, libcap-dev, libseccomp-dev, libyajl-dev, go-md2man, libtool, autoconf
+  - sudo apt install -y libtool libsystemd-dev libcap-dev libseccomp-dev libyajl-dev go-md2man libtool autoconf
   # dependeces conmon
-  - sudo apt install -y gcc, libc6-dev, libglib2.0-dev, pkg-config, runc
+  - sudo apt install -y gcc libc6-dev libglib2.0-dev pkg-config
   - wget https://oplab9.parqtec.unicamp.br/pub/repository/debian/ppc64el/containers/conmon-2.0.30-ppc64le.deb
   - wget https://oplab9.parqtec.unicamp.br/pub/repository/debian/ppc64el/containers/crun-0.20-ppc64le.deb
   - sudo dpkg -i conmon-2.0.30-ppc64le.deb crun-0.20-ppc64le.deb
